@@ -25,26 +25,34 @@ const cityName = document.getElementById('city_name');
 const temp = document.getElementById('temp');
 const humidity = document.getElementById('humidity');
 const wind = document.getElementById('wind');
+
 search.addEventListener('click', () => {
   const city = document.querySelector('input').value;
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
-    .then(response => response.json())
-    .then(data => {
-      cityName.innerText = data.name;
-      temp.innerText = `${Math.round(data.main.temp - 273.15)}°C / ${Math.round((data.main.temp - 273.15) * 9/5 + 32)}°F`;
-      humidity.innerText = `Humidity: ${data.main.humidity}%`;
-      wind.innerText = `Wind: ${data.wind.speed} km/h`;
-      console.log(data.weather[0].main);
-      if (data.weather[0].main === 'Clouds') {
-        document.getElementById('weather_image').src = cloud_image;
-      } else if (data.weather[0].main === 'Clear') {
-        document.getElementById('weather_image').src = sun_image;
-      } else if (data.weather[0].main === 'Rain') {
-        document.getElementById('weather_image').src = rain_image;
-      }
-      else if ( data.weather[0].main === 'Thunderstorm') {
-        document.getElementById('weather_image').src = 'thunderstorm.png';
-      }
-      
-    });
+  makeRequest(city)
 });
+async function makeRequest(city){
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+    const data = await response.json();
+    console.log(data);
+    cityName.innerText = data.name;
+    temp.innerText = `${Math.round(data.main.temp - 273.15)}°C / ${Math.round((data.main.temp - 273.15) * 9/5 + 32)}°F`;
+    humidity.innerText = `Humidity: ${data.main.humidity}%`;
+    wind.innerText = `Wind: ${data.wind.speed} km/h`;
+    console.log(data.weather[0].main);
+    if (data.weather[0].main === 'Clouds') {
+      document.getElementById('weather_image').src = cloud_image;
+    } else if (data.weather[0].main === 'Clear') {
+      document.getElementById('weather_image').src = sun_image;
+    } else if (data.weather[0].main === 'Rain') {
+      document.getElementById('weather_image').src = rain_image;
+    }
+    else if ( data.weather[0].main === 'Thunderstorm') {
+      document.getElementById('weather_image').src = 'thunderstorm.png';
+    }
+  }
+  catch (error){
+    console.log(error)
+  }
+}
+makeRequest('Montgomery');
