@@ -24,7 +24,7 @@ body {
 	margin-top: 100px;
 	padding: 5rem;
   }
-	.card img{
+	.card #weather_image{
 		width: 100px;
 		height: 100px;
 		border-radius: 50%;
@@ -51,4 +51,11 @@ body {
 	}
 	.card h2{
 		margin: 10px 0;
+		text-align: center;
 	}
+
+.icon{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}

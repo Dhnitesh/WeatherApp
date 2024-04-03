@@ -5,14 +5,8 @@ const date = currentDate.toLocaleDateString('en-US', { month: '2-digit', day: '2
 const currentTime = currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
 const amOrPm = currentTime.slice(-2);
 
-const day_image = 'day.jpg';
-const night_image = 'night.jpg';
+const image = 'day.jpg';
 
-if (amOrPm === 'AM') {
-document.body.style.backgroundImage = `url(${day_image})`;
-} else {
-document.body.style.backgroundImage = `url(${night_image})`;
-}
 
 document.getElementById('today').innerText = `${day}, ${date} ${currentTime}`;
 
@@ -37,8 +31,8 @@ async function makeRequest(city){
     console.log(data);
     cityName.innerText = data.name;
     temp.innerText = `${Math.round(data.main.temp - 273.15)}°C / ${Math.round((data.main.temp - 273.15) * 9/5 + 32)}°F`;
-    humidity.innerText = `Humidity: ${data.main.humidity}%`;
-    wind.innerText = `Wind: ${data.wind.speed} km/h`;
+    humidity.innerText = `${data.main.humidity}%`;
+    wind.innerText = `${data.wind.speed} km/h`;
     console.log(data.weather[0].main);
     if (data.weather[0].main === 'Clouds') {
       document.getElementById('weather_image').src = cloud_image;
