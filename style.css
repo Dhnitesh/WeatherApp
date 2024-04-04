@@ -5,8 +5,10 @@ body {
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
-	/* display: flex; */
 	background-size: cover;
+	background-color: #4158D0;
+	background-image: linear-gradient(43deg, #4158D0 0%, #b7b7b7 46%, #FFCC70 100%);
+	overflow: hidden	
   }
   .app_title{
 	text-align: center;
