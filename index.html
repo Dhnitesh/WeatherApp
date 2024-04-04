@@ -1,17 +1,27 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
+  <title>Weather App</title>
 </head>
 <body>
+  <h1 class="app_title">Weather App</h1>
     <div class="card">
-        <img id="weather_image" src="cloudy.png" alt="weather">
-        <input type="text" placeholder="Enter city name" value="Montgomery">
-        <button id="search">Search</button>
+        <div style="display: grid;grid: 62px / auto auto auto;">
+          <div>
+            <input type="text" placeholder="Enter city name" value="Montgomery">
+          </div>
+          <div>
+            <button id="search">Search</button>
+          </div>
+        </div>
+        <img src="" id="weatherIcon" class="icon" alt="">
         <h2 id="today"></h2>
         <h2 id="city_name"></h2>
-        <h2><img src="thermometer.png" class="icon"><br><span id="temp"></span></h2>
-        <h2><img src="humidity.png" class="icon"><br><span id="humidity"></span></h2>
-        <h2><img src="wind.png" class="icon"><br><span id="wind"></span></h2>
+        <h2><span id="temp"></span></h2>
+        <h2><span id="humidity"></span></h2>
+        <h2><span id="wind"></span></h2>
+        <h2><span id="pressure"></span></h2>
+
     </div>
     <script src="script.js"></script>   
 </body>
