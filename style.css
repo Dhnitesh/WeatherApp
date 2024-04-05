@@ -5,10 +5,14 @@ body {
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	background-size: cover;
+	background-color: #4158D0;
+	background-image: linear-gradient(43deg, #4158D0 0%, #b7b7b7 46%, #FFCC70 100%);
+	overflow: hidden	
+  }
+  .app_title{
+	text-align: center;
+	margin-top: 5rem;
   }
   .card {
 	width: 400px;
@@ -22,19 +26,19 @@ body {
 	justify-content: center;
 	margin: 0 auto;
 	margin-top: 100px;
-	padding: 5rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
   }
-	.card img{
+	.card #weather_image{
 		width: 100px;
 		height: 100px;
 		border-radius: 50%;
 	}
 	.card input{
-		width: 80%;
-		height: 30px;
+		width:99%;
 		border: none;
 		border-radius: 5px;
-		margin: 10px 0;
+		/* margin: 10px 0; */
 		padding: 10px 10px;
 	}
 	.card button{
@@ -51,4 +55,15 @@ body {
 	}
 	.card h2{
 		margin: 10px 0;
+		text-align: center;
 	}
+
+.icon{
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background: #ffa899;
+    border-radius: 50%;
+	backdrop-filter: blur(5px);
+
+}
