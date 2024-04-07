@@ -22,7 +22,7 @@ async function makeRequest(city){
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
     const data = await response.json();
     console.log("pppppppppp",data);
-    city_name.innerText = city
+    cityName.innerText = city
     temp.innerHTML = `${Math.round(data.main.temp - 273.15)}°C / ${Math.round((data.main.temp - 273.15) * 9/5 + 32)}°F`
     var icon_code = data.weather[0].icon
     var icon_url = ` https://openweathermap.org/img/wn/${icon_code}@2x.png`
